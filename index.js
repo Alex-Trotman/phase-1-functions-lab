@@ -36,9 +36,30 @@ function distanceTravelledInFeet(start, destination) {
 function calculatesFarePrice(start, destination) {
     const feetPerBlock = 264;
     const feetTravelled = Math.abs(destination - start) * feetPerBlock;
-    if (feetTravelled < 400){
+    if (feetTravelled <= 400){
         return 0;
     } else if (feetTravelled > 400 && feetTravelled < 2000){
-        
+        const fee = (feetTravelled - 400) * 0.02;
+        return fee;
+    } else if (feetTravelled >= 2000 && feetTravelled <= 2500){
+        return 25;
+    } else {
+        return 'cannot travel that far';
     }
   }
+
+// function calculatesFarePrice(start, destination) {
+//     const feetPerBlock = 264;
+//     const feetTravelled = Math.abs(destination - start) * feetPerBlock;
+    
+//     if (feetTravelled <= 400) {
+//         return 0;
+//     } else if (feetTravelled > 400 && feetTravelled < 2000) {
+//         const fee = (feetTravelled - 400) * 0.02;
+//         return fee;
+//     } else if (feetTravelled >= 2000 && feetTravelled <= 2500) {
+//         return 25;
+//     } else {
+//         return 'cannot travel that far';
+//     }
+// }
